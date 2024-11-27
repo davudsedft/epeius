@@ -656,7 +656,7 @@ function 配置信息(密码, 域名地址) {
 	
 	const 传输层协议 = 'ws';
 	const 伪装域名 = 域名地址;
-	const 路径 = '/?ed=2560';
+	const 路径 = '/ed=2560';
 	
 	let 传输层安全 = ['tls',true];
 	const SNI = 域名地址;
@@ -940,7 +940,7 @@ function subAddresses(host,pw,userAgent,newAddressesapi,newAddressescsv) {
 		if (port == "-1") port = "443";
 		
 		let 伪装域名 = host ;
-		let 最终路径 = '/?ed=2560' ;
+		let 最终路径 = '/ed=2560' ;
 		let 节点备注 = '';
 		
 		if(proxyhosts.length > 0 && (伪装域名.includes('.workers.dev') || 伪装域名.includes('pages.dev'))) {
@@ -1106,7 +1106,7 @@ function surge(content, url) {
 		if (x.includes('= trojan,')) {
 			const host = x.split("sni=")[1].split(",")[0];
 			const 备改内容 = `skip-cert-verify=true, tfo=false, udp-relay=false`;
-			const 正确内容 = `skip-cert-verify=true, ws=true, ws-path=/?ed=2560, ws-headers=Host:"${host}", tfo=false, udp-relay=false`;
+			const 正确内容 = `skip-cert-verify=true, ws=true, ws-path=/ed=2560, ws-headers=Host:"${host}", tfo=false, udp-relay=false`;
 			输出内容 += x.replace(new RegExp(备改内容, 'g'), 正确内容).replace("[", "").replace("]", "") + '\n';
 		} else {
 			输出内容 += x + '\n';
